@@ -1,0 +1,27 @@
+{
+  "version": "7",
+  "dialect": "sqlite",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "6",
+      "when": 1792785600000,
+      "tag": "0000_learning",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "6",
+      "when": 1792785600001,
+      "tag": "0001_speech_usage",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "6",
+      "when": 1792785600002,
+      "tag": "0002_ai_usage",
+      "breakpoints": true
+    }
+  ]
+}
