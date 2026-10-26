@@ -18,6 +18,7 @@ const modules = [
   ["app/imported-bank.tsx", "imported-bank.js"],
   ["app/learning-visuals.tsx", "learning-visuals.js"],
   ["app/academy.tsx", "academy.js"],
+  ["app/adam-speech.ts", "adam-speech.js"],
   ["lib/course.ts", "lib/course.js"],
   ["lib/validation.ts", "lib/validation.js"],
   ["app/language-coach.tsx", "language-coach.js"],
@@ -34,7 +35,7 @@ for (const [source, target] of modules) {
   const replacements = [
     ['"./question-media"', '"./question-media.js"'], ['"./learning-tools"', '"./learning-tools.js"'],
     ['"../lib/imported-learning"', '"./lib/imported-learning.js"'], ['"../lib/learning-profile"', '"./lib/learning-profile.js"'], ['"../lib/study-tools"', '"./lib/study-tools.js"'],
-    ['"./game-sounds"', '"./game-sounds.js"'], ['"./playful-scene"', '"./playful-scene.js"'], ['"./nilo-companion"', '"./nilo-companion.js"'],
+    ['"./game-sounds"', '"./game-sounds.js"'], ['"./adam-speech"', '"./adam-speech.js"'], ['"./playful-scene"', '"./playful-scene.js"'], ['"./nilo-companion"', '"./nilo-companion.js"'],
     ['"./imported-bank"', '"./imported-bank.js"'], ['"./advanced-learning"', '"./advanced-learning.js"'], ['"./learning-visuals"', '"./learning-visuals.js"'],
     ['"../lib/course"', '"./lib/course.js"'], ['"../lib/validation"', '"./lib/validation.js"'], ['"./language-coach"', '"./language-coach.js"'],
     ['"../lib/language-course"', '"./lib/language-course.js"'], ['"../lib/motivation"', '"./lib/motivation.js"'], ['"./language-course.ts"', '"./language-course.js"'],
@@ -44,6 +45,7 @@ for (const [source, target] of modules) {
   fs.writeFileSync(path.join(out, target), code);
 }
 fs.copyFileSync(path.join(root, "app/globals.css"), path.join(out, "style.css"));
+fs.copyFileSync(path.join(root, "app/ui-polish.css"), path.join(out, "ui-polish.css"));
 const html = `<!doctype html><html lang="sv"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f6f7fb"><meta name="description" content="Träna YKB steg för steg med svenska frågor, arabiskt språkstöd och körsituationer."><title>TR-os — YKB Akademi</title><link rel="stylesheet" href="/style.css"><script type="importmap">{"imports":{"react":"https://esm.sh/react@19.2.0","react/jsx-runtime":"https://esm.sh/react@19.2.0/jsx-runtime","react-dom/client":"https://esm.sh/react-dom@19.2.0/client?external=react","lucide-react":"https://esm.sh/lucide-react@0.468.0?external=react","zod":"https://esm.sh/zod@3.25.76"}}</script></head><body><div id="root"></div><script type="module">import React from "react";import{createRoot}from"react-dom/client";import Academy from"./academy.js";createRoot(document.getElementById("root")).render(React.createElement(Academy,{name:"din framtid",signedIn:false,storageKey:"ykb-preview-guest"}));</script></body></html>`;
 fs.writeFileSync(path.join(out, "index.html"), html);
 fs.copyFileSync(path.join(root, "public/favicon.svg"), path.join(out, "favicon.svg"));

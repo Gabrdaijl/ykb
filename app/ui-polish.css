@@ -1,0 +1,67 @@
+/* Visual-only refinement. Existing questions, answers and learning flow are unchanged. */
+:root{--bg:#f3f7f8;--border:#e1e9e9;--navy:#15334b;--green:#258c7c;--muted:#748594}
+body{background:radial-gradient(ellipse at 8% 0%,#dbf4ed94,transparent 30rem),radial-gradient(ellipse at 100% 12%,#e3eefa94,transparent 34rem),var(--bg);color:#20384a}
+.sidebar{background:#fffffff5;box-shadow:8px 0 30px #1b37470a}
+.brandmark{border-radius:13px;box-shadow:inset 0 1px #ffffff38,0 5px 14px #112c482b}
+nav button{min-height:46px;border:1px solid transparent;border-radius:12px;transition:all .18s ease}
+nav button:hover{background:#f4f8f8;color:#285d70;transform:translateX(2px)}
+nav button.active{border-color:#dbece8;background:linear-gradient(110deg,#eaf7f3,#f0f5fb);color:#187b70}
+.main>header{position:sticky;top:0;z-index:12;background:#fffffff0;backdrop-filter:blur(14px)}
+main{padding-top:clamp(24px,3vw,42px);padding-bottom:48px}
+.panel,.daily,.topic,.coach-metrics>button,.coach-exercise{border:1px solid #e1e9e9;border-radius:18px;box-shadow:0 12px 34px #1935450f}
+.panel,.topic{transition:border-color .18s,box-shadow .18s,transform .18s}
+.topic:hover,.coach-metrics>button:hover{border-color:#c9e2dc;box-shadow:0 16px 36px #19354517;transform:translateY(-2px)}
+.hero,.coach-welcome{border-radius:23px;box-shadow:0 20px 50px #10314421}
+.whitebutton,.primary,.game-button,.import-launch{border-radius:13px;transition:transform .16s,filter .16s}
+.primary:not(:disabled):hover,.game-button:hover,.import-launch:hover,.whitebutton:hover{filter:brightness(1.04);transform:translateY(-2px)}
+input:not([type=checkbox]),select,textarea{border-radius:11px}
+.coach-top h1,main>h1{color:#17394e;letter-spacing:-.045em}
+.coach-metrics>button,.coach-choices>button,.coach-library,.unit-banner,.memory-hub,.external-practice,.buddy-card,.daily-quest,.practice-pocket{border-radius:18px}
+.lesson-focus.imported-session{background:radial-gradient(ellipse at 10% 4%,#dcf6eeb3,transparent 28rem),radial-gradient(ellipse at 95% 10%,#e8f0fbb3,transparent 30rem),#f7faf9!important;padding:12px clamp(12px,3vw,44px) max(18px,env(safe-area-inset-bottom))!important}
+.imported-session .session-header{min-height:58px;gap:12px;border:1px solid #e3ece9;border-radius:17px;background:#fffffff2;box-shadow:0 5px 20px #1a3c470d}
+.imported-session .session-brand{color:#157c70;font-size:22px;font-weight:900;letter-spacing:-.04em}
+.imported-session .session-gamebar{max-width:1120px;margin:10px auto 14px}
+.imported-session .coach-exercise{width:min(100%,1120px);max-width:1120px;gap:12px;margin:0 auto;padding:clamp(14px,2.4vw,28px);border:1px solid #deebe7;border-radius:23px;background:#fffffff5;box-shadow:0 18px 52px #1a3c4717}
+.imported-session .playful-scene{min-height:64px;height:auto;border-radius:17px}
+.imported-session .scene-nilo{width:58px;height:58px;flex-basis:58px}
+.imported-session .import-label{display:flex;align-items:center;flex-wrap:wrap;gap:9px;margin:4px 0;color:#66817f;letter-spacing:.08em}
+.imported-session .import-label button{margin-inline-start:auto;border:1px solid #dae7e4;border-radius:12px;background:#fff;min-height:40px;padding:8px 13px;color:#39716e}
+.imported-session .question-reading-card.has-source-image{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(240px,.85fr);align-items:center;gap:clamp(16px,3vw,34px);min-height:215px;padding:clamp(16px,3vw,30px);border:1px solid #e2eae7;border-radius:21px;background:linear-gradient(135deg,#fff 48%,#f3f8f7);box-shadow:0 10px 28px #1f3e480d}
+.imported-session .question-reading-card.has-context-art{min-height:175px;padding:clamp(16px,3vw,30px);border:1px solid #e2eae7;border-radius:21px;background:linear-gradient(135deg,#fff,#f4f8f7)}
+.imported-session .question-instruction{display:inline-flex;align-items:center;gap:8px;margin-bottom:12px;color:#3b897d;font-size:10px;font-weight:850;letter-spacing:.12em}
+.imported-session .question-instruction:before{content:"";width:8px;height:8px;border-radius:50%;background:#62bb9d;box-shadow:0 0 0 4px #e7f6ef}
+.imported-session .question-reading-card .coach-prompt{max-width:40ch;margin:0;color:#203b4b;font-size:clamp(22px,2.5vw,34px)!important;font-weight:780;line-height:1.45!important;letter-spacing:-.025em;overflow-wrap:anywhere}
+.imported-session .question-media,.imported-session .source-picture-grid{width:100%;max-height:none}
+.imported-session .source-picture-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;overflow:visible}
+.imported-session .source-picture-grid figure{min-width:0;margin:0}
+.imported-session .source-picture-grid .question-image-button{width:100%;height:auto;min-height:150px;padding:7px;border:1px solid #dce7e5;border-radius:16px;background:#f7faf9;box-shadow:0 5px 15px #183c4312}
+.imported-session .source-picture-grid .question-image-button img{display:block;width:100%;height:clamp(140px,19vh,220px);max-height:220px;border-radius:10px;object-fit:contain;background:#fff}
+.imported-session .source-picture-grid .question-image-button>span{margin-top:7px;font-size:11px}
+.imported-session .source-picture-grid figcaption{margin-top:6px;color:#718582;font-size:10px;text-align:center}
+.imported-session .context-art{width:100%;min-height:160px;display:grid;place-items:center;overflow:hidden;border:1px solid #e0ebe7;border-radius:17px;background:linear-gradient(145deg,#eaf6f2,#eef3fb)}
+.imported-session .context-art svg{width:min(100%,280px);max-height:200px}
+.imported-session .import-question-tools{display:flex;align-items:center;flex-wrap:wrap;gap:8px;padding:4px 0;overflow:visible}
+.imported-session .import-question-tools button,.imported-session .import-question-tools .audio-speed{min-height:40px;border:1px solid #dce7e4;border-radius:12px;background:#fff;padding:7px 11px;color:#4d7372;font-size:12px;font-weight:700}
+.imported-session .import-question-tools button:hover{border-color:#99cfc0;background:#f0faf6}
+.imported-session .voice-status-note{color:#66817f;font-size:11px}
+.imported-session .import-question-tools .audio-speed{display:inline-flex;align-items:center;gap:7px;margin:0}
+.imported-session .import-question-tools .audio-speed select{min-height:29px;padding:4px 7px;border:1px solid #dce7e4;background:#fbfdfc}
+.imported-session .arabic-question{padding:14px 18px;border:1px solid #dbeaf1;border-radius:17px;background:linear-gradient(135deg,#f0f7fc,#f8fbff)}
+.imported-session .arabic-question>p{margin:0;color:#315d74;font-size:clamp(18px,2vw,24px)!important;line-height:1.8!important}
+.imported-session .coach-options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px;margin:5px 0 10px}
+.imported-session .coach-options .option{min-height:80px!important;height:auto;padding:13px 16px!important;gap:13px;border:1px solid #dfe9e8;border-bottom:4px solid #d5e4e1;border-radius:16px;background:linear-gradient(145deg,#fff,#fbfdfc);box-shadow:0 4px 12px #1b3b440a;transition:all .16s}
+.imported-session .coach-options .option:not(:disabled):hover{border-color:#a6d4c8;box-shadow:0 8px 17px #2572641a;transform:translateY(-2px)}
+.imported-session .coach-options .option>span{width:36px;height:36px;flex:0 0 36px;border:1px solid #dce7e8;border-radius:11px;background:#f1f6f7;color:#526f7d;font-size:14px;font-weight:850}
+.imported-session .coach-options .option .answer-copy>strong{color:#294556;font-size:clamp(15px,1.35vw,19px)!important;font-weight:700;line-height:1.5!important}
+.imported-session .coach-options .option .answer-copy>small{margin-top:4px;color:#6e8590;font-size:clamp(13px,1.1vw,16px)!important;line-height:1.6!important}
+.imported-session .coach-options .option.selected{border-color:#65b8a5!important;background:linear-gradient(145deg,#f1fcf7,#e8f7f1)!important;box-shadow:0 0 0 3px #4bb1931f}
+.imported-session .confidence-inline{display:flex;align-items:center;justify-content:space-between;gap:10px;width:min(100%,420px);min-height:40px;color:#607982;font-size:12px}
+.imported-session .lesson-action{position:sticky!important;bottom:0;z-index:8;display:flex;align-items:center;justify-content:space-between;gap:12px;width:min(100%,1120px);min-height:68px;margin:10px auto 0!important;padding:10px clamp(14px,2vw,24px) max(10px,env(safe-area-inset-bottom))!important;border:1px solid #e0eae7!important;border-radius:19px!important;background:#fffffff0!important;box-shadow:0 -8px 24px #1c3c440f!important;backdrop-filter:blur(14px)}
+.imported-session .lesson-action>span{display:block!important;color:#68807f;font-size:12px}
+.imported-session .lesson-action>.primary{min-height:46px;min-width:185px;margin:0!important;border-radius:14px;font-size:14px;font-weight:800}
+.question-image-dialog{max-width:min(94vw,1100px);max-height:92dvh;border:1px solid #dae6e3;border-radius:21px;padding:18px;box-shadow:0 24px 90px #0d222d59}
+.question-image-dialog img{max-height:76dvh;object-fit:contain}
+@media(max-width:760px){main{padding-inline:18px}.lesson-focus.imported-session{padding:8px 10px max(12px,env(safe-area-inset-bottom))!important}.imported-session .session-header{min-height:50px;gap:8px;padding-inline:8px}.imported-session .coach-exercise{gap:9px;padding:12px;border-radius:18px}.imported-session .playful-scene{min-height:52px}.imported-session .scene-nilo{width:46px;height:46px;flex-basis:46px}.imported-session .question-reading-card.has-source-image{grid-template-columns:minmax(0,1fr) minmax(135px,.7fr);gap:10px;min-height:160px;padding:13px}.imported-session .question-reading-card.has-context-art{min-height:140px;padding:13px}.imported-session .question-reading-card .coach-prompt{font-size:clamp(18px,4.2vw,25px)!important;line-height:1.48!important}.imported-session .source-picture-grid{grid-template-columns:1fr}.imported-session .source-picture-grid .question-image-button{min-height:120px}.imported-session .source-picture-grid .question-image-button img{height:clamp(110px,18vh,155px);max-height:155px}.imported-session .context-art{min-height:115px}.imported-session .context-art svg{max-height:140px}.imported-session .coach-options{gap:8px}.imported-session .coach-options .option{min-height:68px!important;padding:10px!important;gap:9px}.imported-session .coach-options .option>span{width:31px;height:31px;flex-basis:31px}.imported-session .lesson-action{min-height:56px}.imported-session .lesson-action>span{max-width:40%;font-size:10px}.imported-session .lesson-action>.primary{min-width:150px}}
+@media(max-width:520px){.imported-session .question-reading-card.has-source-image{grid-template-columns:minmax(0,1fr)}.imported-session .question-reading-card .coach-prompt{max-width:none}.imported-session .source-picture-grid{grid-template-columns:repeat(auto-fit,minmax(100px,1fr))}.imported-session .source-picture-grid .question-image-button{min-height:105px}.imported-session .source-picture-grid .question-image-button img{height:clamp(95px,16vh,140px)}.imported-session .coach-options{grid-template-columns:minmax(0,1fr)}.imported-session .coach-options .option{min-height:62px!important}.imported-session .import-question-tools button,.imported-session .import-question-tools .audio-speed{min-height:38px;font-size:11px}.imported-session .import-question-tools .audio-speed{display:inline-flex!important}.imported-session .lesson-action>span{display:none!important}.imported-session .lesson-action>.primary{width:100%;min-width:0}.coach-metrics{grid-template-columns:repeat(2,minmax(0,1fr))}.coach-choices{grid-template-columns:minmax(0,1fr)}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+
