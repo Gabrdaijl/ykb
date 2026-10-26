@@ -65,3 +65,39 @@ input:not([type=checkbox]),select,textarea{border-radius:11px}
 @media(max-width:520px){.imported-session .question-reading-card.has-source-image{grid-template-columns:minmax(0,1fr)}.imported-session .question-reading-card .coach-prompt{max-width:none}.imported-session .source-picture-grid{grid-template-columns:repeat(auto-fit,minmax(100px,1fr))}.imported-session .source-picture-grid .question-image-button{min-height:105px}.imported-session .source-picture-grid .question-image-button img{height:clamp(95px,16vh,140px)}.imported-session .coach-options{grid-template-columns:minmax(0,1fr)}.imported-session .coach-options .option{min-height:62px!important}.imported-session .import-question-tools button,.imported-session .import-question-tools .audio-speed{min-height:38px;font-size:11px}.imported-session .import-question-tools .audio-speed{display:inline-flex!important}.imported-session .lesson-action>span{display:none!important}.imported-session .lesson-action>.primary{width:100%;min-width:0}.coach-metrics{grid-template-columns:repeat(2,minmax(0,1fr))}.coach-choices{grid-template-columns:minmax(0,1fr)}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
 
+
+/* Short desktop viewports: keep the question, illustration and answer choices in view. */
+@media (max-height: 740px) and (min-width: 760px) {
+  .lesson-focus.imported-session { padding: 4px 12px max(6px,env(safe-area-inset-bottom)) !important; }
+  .imported-session .session-header { min-height: 42px; gap: 9px; }
+  .imported-session .session-gamebar { margin: 3px auto 6px; }
+  .imported-session .coach-exercise { gap: 5px; padding: 8px 12px; border-radius: 17px; }
+  .imported-session .playful-scene { min-height: 36px; height: 36px; padding: 0 8px; }
+  .imported-session .scene-nilo { width: 36px; height: 36px; flex-basis: 36px; }
+  .imported-session .scene-message p { margin: 2px 0; font-size: 10px; }
+  .imported-session .import-label { gap: 6px; margin: 0; font-size: 8px; }
+  .imported-session .import-label button { min-height: 30px; padding: 4px 9px; }
+  .imported-session .question-reading-card.has-source-image { min-height: 112px; gap: 12px; padding: 10px 14px; }
+  .imported-session .question-reading-card.has-context-art { min-height: 105px; padding: 10px 14px; }
+  .imported-session .question-instruction { margin-bottom: 6px; font-size: 8px; }
+  .imported-session .question-reading-card .coach-prompt { font-size: clamp(18px,1.7vw,22px) !important; line-height: 1.35 !important; }
+  .imported-session .source-picture-grid .question-image-button { min-height: 88px; padding: 4px; }
+  .imported-session .source-picture-grid .question-image-button img { height: 88px; max-height: 88px; }
+  .imported-session .source-picture-grid figcaption { margin-top: 2px; font-size: 8px; }
+  .imported-session .context-art { min-height: 84px; }
+  .imported-session .context-art svg { max-height: 92px; }
+  .imported-session .import-question-tools { gap: 5px; padding: 1px 0; }
+  .imported-session .import-question-tools button,
+  .imported-session .import-question-tools .audio-speed { min-height: 32px; padding: 4px 8px; font-size: 10px; }
+  .imported-session .import-question-tools .audio-speed select { min-height: 25px; padding: 2px 5px; }
+  .imported-session .arabic-question { padding: 7px 11px; }
+  .imported-session .arabic-question > p { font-size: 16px !important; line-height: 1.5 !important; }
+  .imported-session .confidence-inline { min-height: 29px; font-size: 10px; }
+  .imported-session .coach-options { gap: 7px; margin: 1px 0 4px; }
+  .imported-session .coach-options .option { min-height: 48px !important; padding: 7px 10px !important; gap: 9px; }
+  .imported-session .coach-options .option > span { width: 28px; height: 28px; flex-basis: 28px; font-size: 11px; }
+  .imported-session .coach-options .option .answer-copy > strong { font-size: 14px !important; line-height: 1.3 !important; }
+  .imported-session .coach-options .option .answer-copy > small { margin-top: 1px; font-size: 11px !important; line-height: 1.3 !important; }
+  .imported-session .lesson-action { min-height: 48px; margin-top: 3px !important; padding: 5px 10px !important; }
+  .imported-session .lesson-action > .primary { min-height: 36px; min-width: 150px; font-size: 12px; }
+}
