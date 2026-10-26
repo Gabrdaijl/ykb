@@ -171,3 +171,5 @@ Studiesökningen söker nu lokalt i importerade YKB-frågor, arabiska översätt
 
 ## Public Vercel preview
 Run `npm run build:vercel` to generate `dist/` for Vercel. This publishes the student-facing static learning app, including the local question bank, bilingual learning flow, scenarios, and browser-local progress. It does not publish `.openai/hosting.json` or any secret files. Account-backed cloud progress, server AI, and ElevenLabs require a Vercel-compatible backend and secure environment-variable/database setup; those services remain unavailable in the static deployment.
+## Deployment
+The Vercel production project `ykb11` deploys from this repository's `main` branch using `npm run build:vercel` and the `dist` output directory.
