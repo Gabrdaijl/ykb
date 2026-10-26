@@ -23,6 +23,7 @@ export async function POST(r:Request){
  const quota=await e.DB.prepare("INSERT INTO speech_usage (id, count) VALUES (?, 1) ON CONFLICT(id) DO UPDATE SET count = count + 1 WHERE count < ? RETURNING count").bind(bucket,quotaLimit).first();
  if(!quota)return Response.json({error:"Timgränsen är nådd. Försök senare eller fortsätt med enhetsrösten."},{status:429});
  try{const response=await fetch("https://api.elevenlabs.io/v1/text-to-speech/"+encodeURIComponent(ADAM_VOICE_ID)+"?output_format=mp3_44100_128",{method:"POST",headers:{"xi-api-key":e.ELEVENLABS_API_KEY,"Content-Type":"application/json"},body:JSON.stringify({text,model_id:"eleven_v4",language_code:language,voice_settings:{stability:.5,similarity_boost:.75,speed}}),signal:AbortSignal.timeout(25000)});
+ if(response.status===402)return Response.json({error:"Adam Composer kräver Creator eller API-krediter hos ElevenLabs för användning i TR-os."},{status:402});
  if(!response.ok)return Response.json({error:"Rösttjänsten kunde inte skapa ljud. Prova webbläsarens röst."},{status:502});
  return new Response(response.body,{headers:{"Content-Type":"audio/mpeg","Cache-Control":"private, no-store","X-Content-Type-Options":"nosniff"}});
  }catch{return Response.json({error:"Rösttjänsten svarade inte i tid."},{status:504})}
