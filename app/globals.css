@@ -603,3 +603,8 @@ body{background:#f4f6fa}.coach{animation:scene-in .55s ease both}.coach-top .eye
  .imported-session .lesson-action>.primary{width:100%;min-width:0}
 }
 @media(prefers-reduced-motion:reduce){.imported-session .scene-nilo{animation:none!important}}
+
+/* Keep retry progress and voice speed visible during learning. */
+.imported-session .retry-streak{display:inline-flex;align-items:center;margin-inline:10px;padding:5px 9px;border-radius:999px;background:#e8f5ed;color:#28744f;font-size:11px;font-weight:800;letter-spacing:0}
+.imported-session .retry-streak-copy{padding:10px 13px;border-radius:12px;background:#edf7f1;color:#2d694d;font-weight:650;line-height:1.55}
+@media(max-width:390px){.imported-session .audio-speed{display:flex!important}.imported-session .import-question-tools{flex-wrap:wrap;overflow:visible}.imported-session .import-question-tools .audio-speed{min-width:100%;justify-content:flex-start}}

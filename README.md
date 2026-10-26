@@ -48,7 +48,7 @@ Six automated tests pass. Manual browser checks cover the four-stage interface, 
 
 ## ElevenLabs speech
 Server-side integration: GET /api/speech reports configuration; authenticated POST /api/speech reads approved course text using ElevenLabs Multilingual v2.
-Configure ELEVENLABS_API_KEY and ELEVENLABS_VOICE_ID as server secrets (see .env.example); select a suitable Swedish-capable voice in your ElevenLabs account. Never send the key through chat or put it in client code. Apply migration 0001_speech_usage before enabling.
+Configure ELEVENLABS_API_KEY as a server secret (see .env.example); the endpoint uses ElevenLabs’ Adam preset voice for Swedish questions and accepts a learner-selected speed from 0.7× to 1.2×. Never send the key through chat or put it in client code. Apply migration 0001_speech_usage before enabling.
 Speech generation is limited to 24 requests per authenticated user per UTC hour using an atomic database counter. Provider errors are sanitized. Course text is transmitted to ElevenLabs only when the learner selects that voice and presses a listening button.
 The static local preview has no server integration: ElevenLabs is visibly marked as awaiting connection, and browser speech remains available. No live provider call has been tested because credentials are absent.
 API reference: https://elevenlabs.io/docs/api-reference/text-to-speech/convert
@@ -151,7 +151,7 @@ Uppläsningen väljer en installerad svensk kvinnoröst om sådan finns, annars 
 
 A floating Nilo companion gives page-aware study prompts throughout the main learning flow and can read them aloud. The server speech endpoint accepts Swedish course text and imported YKB questions after an explicit listen action. Signed-in learners receive 24 requests per hour; visitors can use it without an account with a stricter 6-request hourly limit hashed by client IP. When the server reports ElevenLabs as configured, the app selects it automatically; otherwise it falls back to the available device voice.
 
-A natural Swedish female voice is not active in the local preview until an administrator adds ELEVENLABS_API_KEY and a Swedish female ELEVENLABS_VOICE_ID as server secrets and applies the existing speech-usage database migration. Never put the API key in client code.
+The Swedish question voice uses ElevenLabs’ Adam preset when ELEVENLABS_API_KEY and the speech-usage database migration are configured. Learners can choose a saved playback speed from 0.7× to 1.2×; otherwise the app falls back to the device voice. Never put the API key in client code.
 
 Nilo now uses a custom animated SVG character with blinking eyes, waving arms, speech motion, and interactive simple-language, hint, and encouragement actions. The small context-aware teaser opens the coach from any page.
 
