@@ -1,0 +1,14 @@
+import { createHash, timingSafeEqual } from "node:crypto";
+import { del, get, list, put } from "@vercel/blob";
+export const json=(res,status,value)=>{res.status(status);res.setHeader("Content-Type","application/json; charset=utf-8");res.setHeader("Cache-Control","no-store");res.setHeader("X-Content-Type-Options","nosniff");return res.send(JSON.stringify(value));};
+export function sameOrigin(req){const origin=req.headers.origin;if(!origin)return false;try{return new URL(origin).host.toLowerCase()===String(req.headers.host||"").toLowerCase()}catch{return false}}
+export function parseBody(body){if(body&&typeof body==="object")return body;if(typeof body!=="string"||body.length>12000)return null;try{return JSON.parse(body)}catch{return null}}
+export function endpointId(endpoint){return createHash("sha256").update(endpoint).digest("hex")}
+export function validPushSubscription(v){if(!v||typeof v!=="object"||typeof v.endpoint!=="string"||v.endpoint.length>2048)return false;try{const u=new URL(v.endpoint);if(u.protocol!=="https:"||!u.hostname||u.username||u.password)return false}catch{return false}return typeof v.keys?.p256dh==="string"&&v.keys.p256dh.length<256&&typeof v.keys?.auth==="string"&&v.keys.auth.length<128}
+export function validTimeZone(z){if(typeof z!=="string"||z.length>80)return false;try{new Intl.DateTimeFormat("en",{timeZone:z});return true}catch{return false}}
+export function cronAuthorized(req){const e=process.env.TR_OS_PUSH_CRON_SECRET,s=String(req.headers.authorization||"").replace(/^Bearer\s+/i,"");if(!e||!s||e.length!==s.length)return false;return timingSafeEqual(Buffer.from(e),Buffer.from(s))}
+export async function saveSubscription(value){const p="push/subscriptions/"+endpointId(value.subscription.endpoint)+".json";await put(p,JSON.stringify(value),{access:"private",contentType:"application/json",allowOverwrite:true,addRandomSuffix:false})}
+export async function removeSubscription(endpoint){await del("push/subscriptions/"+endpointId(endpoint)+".json",{access:"private"})}
+export async function listSubscriptions(){let cursor;const blobs=[];do{const page=await list({prefix:"push/subscriptions/",limit:1000,cursor,mode:"expanded",access:"private"});blobs.push(...page.blobs);cursor=page.cursor}while(cursor);return Promise.all(blobs.map(async b=>{const r=await get(b.url,{access:"private",useCache:false});if(!r||r.statusCode!==200)return null;const text=await new Response(r.stream).text();try{return{pathname:b.pathname,data:JSON.parse(text)}}catch{return null}}))}
+export async function sendMarker(path,body){return put(path,body,{access:"private",contentType:"application/json",allowOverwrite:true,addRandomSuffix:false})}
+export async function hasMarker(path){const r=await get(path,{access:"private",useCache:false});return Boolean(r&&r.statusCode===200)}
