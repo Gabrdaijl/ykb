@@ -1,0 +1,19 @@
+{
+  "id": "/",
+  "name": "TR-os – YKB Akademi",
+  "short_name": "TR-os",
+  "description": "YKB-träning på svenska och arabiska, steg för steg.",
+  "lang": "sv-SE",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "display_override": ["standalone", "minimal-ui"],
+  "orientation": "portrait-primary",
+  "background_color": "#f4f8f7",
+  "theme_color": "#123f46",
+  "icons": [
+    {"src": "/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any"},
+    {"src": "/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any"},
+    {"src": "/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable"}
+  ]
+}
