@@ -70,6 +70,8 @@ export default async function speech(req, res) {
       signal: AbortSignal.timeout(25_000),
     });
     if (!response.ok) {
+      const upstreamError = await response.clone().json().catch(() => null);
+      console.error("ElevenLabs TTS upstream error", { status: response.status, type: upstreamError?.detail?.type, message: upstreamError?.detail?.message, voice: ADAM_VOICE_NAME, model: "Eleven v4" });
       if (response.status === 429) return json(res, 429, { error: "ElevenLabs har nått sin ljudgräns. Försök igen senare." });
       return json(res, 502, { error: "Adam-rösten kunde inte skapa ljud just nu. Försök igen senare." });
     }
