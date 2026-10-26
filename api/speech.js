@@ -1,4 +1,5 @@
-const ADAM_VOICE_ID = "pNInz6obpgDQGcFmaJgB";
+const ADAM_VOICE_ID = "x0u3EW21dbrORJzOq1m9";
+const ADAM_VOICE_NAME = "Adam Composer - Resonant and Smooth";
 const hourlyRequests = new Map();
 
 function json(res, status, payload) {
@@ -29,7 +30,7 @@ export default async function speech(req, res) {
 
   const apiKey = process.env.ELEVENLABS_API_KEY;
   if (req.method === "GET") {
-    return json(res, 200, { configured: Boolean(apiKey), provider: "ElevenLabs", voice: "Adam" });
+    return json(res, 200, { configured: Boolean(apiKey), provider: "ElevenLabs", voice: ADAM_VOICE_NAME, model: "Eleven v4" });
   }
   if (req.method !== "POST") {
     res.setHeader("Allow", "GET, POST");
@@ -62,7 +63,8 @@ export default async function speech(req, res) {
       headers: { "xi-api-key": apiKey, "Content-Type": "application/json" },
       body: JSON.stringify({
         text,
-        model_id: "eleven_multilingual_v2",
+        model_id: "eleven_v4",
+        language_code: language,
         voice_settings: { stability: 0.55, similarity_boost: 0.75, speed },
       }),
       signal: AbortSignal.timeout(25_000),

@@ -4,8 +4,8 @@ export async function adamVoiceStatus(signal?: AbortSignal): Promise<boolean> {
   try {
     const response = await fetch("/api/speech", { cache: "no-store", signal });
     if (!response.ok) return false;
-    const result = await response.json() as { configured?: boolean; voice?: string };
-    return result.configured === true && result.voice === "Adam";
+    const result = await response.json() as { configured?: boolean; voice?: string; model?: string };
+    return result.configured === true && result.voice === "Adam Composer - Resonant and Smooth" && result.model === "Eleven v4";
   } catch {
     return false;
   }
