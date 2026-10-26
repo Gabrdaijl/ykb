@@ -101,3 +101,24 @@ input:not([type=checkbox]),select,textarea{border-radius:11px}
   .imported-session .lesson-action { min-height: 48px; margin-top: 3px !important; padding: 5px 10px !important; }
   .imported-session .lesson-action > .primary { min-height: 36px; min-width: 150px; font-size: 12px; }
 }
+
+/* On short wide screens, keep translation beside the two-column answer grid. */
+@media (max-height: 740px) and (min-width: 760px) {
+  .imported-session .coach-exercise { display: grid; grid-template-columns: minmax(0,1.1fr) minmax(330px,.9fr); align-items: center; }
+  .imported-session .playful-scene,
+  .imported-session .import-label,
+  .imported-session .question-reading-card,
+  .imported-session .import-question-tools,
+  .imported-session .import-attribution,
+  .imported-session .coach-source,
+  .imported-session .lesson-action,
+  .imported-session .coach-feedback,
+  .imported-session .import-saved,
+  .imported-session .difficulty-check,
+  .imported-session .question-guide { grid-column: 1 / -1; }
+  .imported-session .arabic-question { grid-column: 1; align-self: start; }
+  .imported-session .confidence-inline { grid-column: 1; align-self: end; }
+  .imported-session .coach-options { grid-column: 2; grid-row: 5 / span 2; align-self: stretch; align-content: center; }
+  .imported-session .coach-options .option { min-height: 46px !important; }
+  .imported-session .lesson-action { width: 100%; }
+}
