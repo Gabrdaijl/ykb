@@ -104,7 +104,7 @@ input:not([type=checkbox]),select,textarea{border-radius:11px}
 
 /* On short wide screens, keep translation beside the two-column answer grid. */
 @media (max-height: 740px) and (min-width: 760px) {
-  .imported-session .coach-exercise { display: grid; grid-template-columns: minmax(0,1.1fr) minmax(330px,.9fr); align-items: center; }
+  .imported-session .coach-exercise { display: grid !important; grid-template-columns: minmax(0,1.1fr) minmax(330px,.9fr); align-items: center; }
   .imported-session .playful-scene,
   .imported-session .import-label,
   .imported-session .question-reading-card,
